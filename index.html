@@ -13,6 +13,383 @@
 
 <div class="grid-bg"></div>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0D1B2A;
+    --paper: #16283C;
+    --ink: #E6EDF3;
+    --muted: #8B9BB4;
+    --plum: #C586C0;
+    --rust: #E0975F;
+    --sage: #8FB37D;
+    --line: #2A3F58;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  h1, h2, .brand {
+    font-family: 'Fraunces', serif;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .brand {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+
+  nav a:hover { color: var(--plum); }
+
+  header {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero-text { max-width: 560px; }
+
+  .hero-art {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-art svg {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+  }
+
+  .ink-stroke {
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: paintIn 1.6s ease-out 0.3s forwards;
+  }
+
+  .splash {
+    opacity: 0;
+    animation: fadeSplash 0.8s ease 1.4s forwards, driftSplash 5s ease-in-out 2.2s infinite;
+    transform-origin: center;
+  }
+
+  .blob {
+    opacity: 0;
+    animation: fadeBlob 1s ease forwards;
+  }
+
+  @keyframes fadeBlob {
+    to { opacity: 1; }
+  }
+
+  @keyframes driftSplash {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .eyebrow {
+    color: var(--rust);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  header h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.15;
+    max-width: 640px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .brush-underline {
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .brush-underline svg {
+    position: absolute;
+    left: -4px;
+    bottom: -6px;
+    width: calc(100% + 8px);
+    height: 18px;
+  }
+
+  .brush-underline path {
+    stroke: var(--rust);
+    stroke-width: 8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: paintIn 1.1s ease-out 0.5s forwards;
+  }
+
+  @keyframes paintIn {
+    to { stroke-dashoffset: 0; }
+  }
+
+  header p.lede {
+    margin-top: 26px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 560px;
+  }
+
+  .cta-row {
+    margin-top: 34px;
+    display: flex;
+    gap: 16px;
+  }
+
+  .btn {
+    padding: 12px 26px;
+    border-radius: 4px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .btn-secondary {
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+
+  .btn-primary:hover { background: var(--plum); }
+  .btn-secondary:hover { border-color: var(--plum); color: var(--plum); }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  section {
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  section p {
+    color: var(--ink);
+    max-width: 640px;
+  }
+
+  .tag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .tag {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+
+  .tag.skill { border-color: var(--sage); color: var(--sage); }
+  .tag.interest { border-color: var(--plum); color: var(--plum); }
+
+  .edu-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .edu-item:last-child { border-bottom: none; }
+
+  .edu-item h3 {
+    font-size: 1.02rem;
+    font-weight: 500;
+  }
+
+  .edu-item span {
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+
+  .social-btn:hover { border-color: var(--plum); color: var(--plum); }
+  .social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+  footer {
+    text-align: center;
+    padding: 36px 20px;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  footer a { color: var(--rust); text-decoration: none; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .about-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--line);
+    background: var(--line);
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    nav { flex-direction: column; gap: 14px; padding: 24px 24px; }
+    header { grid-template-columns: 1fr; padding: 40px 24px 60px; text-align: left; }
+    .hero-art { order: -1; max-width: 220px; margin: 0 auto 20px; }
+    main { padding: 0 24px 60px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo { width: 100px; height: 100px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brush-underline path { animation: none; stroke-dashoffset: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="hero-art">
+    <svg viewBox="0 0 320 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- watercolor backdrop blobs -->
+      <path class="blob" style="animation-delay:0.2s" d="M40 70 C 10 100, 20 150, 60 165 C 100 180, 120 130, 100 95 C 85 68, 65 55, 40 70 Z" fill="#6B4066" opacity="0.16"/>
+      <path class="blob" style="animation-delay:0.4s" d="M230 40 C 270 45, 295 85, 275 120 C 258 150, 210 145, 200 110 C 192 82, 200 36, 230 40 Z" fill="#C17A45" opacity="0.16"/>
+      <path class="blob" style="animation-delay:0.6s" d="M250 190 C 290 200, 300 245, 265 260 C 232 274, 200 250, 210 218 C 218 195, 225 184, 250 190 Z" fill="#77896F" opacity="0.18"/>
+
+      <!-- book stack -->
+      <g style="animation-delay:0.7s" class="blob">
+        <rect x="26" y="188" width="70" height="14" rx="2" fill="#77896F" stroke="#8B9BB4" stroke-width="2"/>
+        <rect x="32" y="174" width="62" height="14" rx="2" fill="#D8AA55" stroke="#8B9BB4" stroke-width="2"/>
+        <rect x="24" y="160" width="66" height="14" rx="2" fill="#C17A45" stroke="#8B9BB4" stroke-width="2"/>
+      </g>
+
+      <!-- laptop -->
+      <rect x="95" y="90" width="150" height="102" rx="6" fill="#16283C" stroke="#8B9BB4" stroke-width="2.5"/>
+      <path d="M78 218 L262 218 L246 196 L94 196 Z" fill="#0D1B2A" stroke="#8B9BB4" stroke-width="2.5"/>
+
+      <!-- code lines on screen -->
+      <path class="ink-stroke" style="stroke-dasharray:260;stroke-dashoffset:260;animation-delay:0.5s" d="M110 108 L165 108 M110 122 L190 122 M120 136 L175 136 M110 150 L155 150 M120 164 L200 164 M110 178 L145 178" stroke="#77896F" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+      <!-- paint palette -->
+      <ellipse class="blob" style="animation-delay:0.9s" cx="252" cy="222" rx="34" ry="24" fill="#F1E4CF" stroke="#8B9BB4" stroke-width="2.5"/>
+      <circle class="blob" style="animation-delay:1s" cx="240" cy="215" r="5" fill="#C17A45"/>
+      <circle class="blob" style="animation-delay:1.05s" cx="258" cy="212" r="5" fill="#6B4066"/>
+      <circle class="blob" style="animation-delay:1.1s" cx="266" cy="226" r="5" fill="#77896F"/>
+      <circle class="blob" style="animation-delay:1.15s" cx="246" cy="230" r="5" fill="#D8AA55"/>
+
+      <!-- paintbrush resting across the laptop -->
+      <g style="animation-delay:1.2s" class="blob">
+        <rect x="150" y="60" width="10" height="70" rx="4" fill="#C17A45" stroke="#8B9BB4" stroke-width="2" transform="rotate(28 155 95)"/>
+        <path d="M140 55 L168 55 L158 32 L150 32 Z" fill="#8B9BB4" transform="rotate(28 155 95)"/>
+      </g>
+      <path class="ink-stroke" style="stroke-dasharray:80;stroke-dashoffset:80;animation-delay:1.4s" d="M158 50 C 148 66, 138 80, 128 92" stroke="#C586C0" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+      <!-- scattered paint dots -->
+      <circle class="splash" cx="70" cy="55" r="4" fill="#C17A45"/>
+      <circle class="splash" style="animation-delay:1.6s" cx="90" cy="40" r="3" fill="#6B4066"/>
+      <circle class="splash" style="animation-delay:1.7s" cx="270" cy="80" r="3" fill="#77896F"/>
+    </svg>
+  </div>
+</header>
+
+<main>
+
+    <div class="section-label" style="margin-top: 34px;">Beyond code</div>
+    <div class="tag-grid">
+      <span class="tag interest">Reading</span>
+      <span class="tag interest">Painting</span>
+    </div>
+  </section>
+
+</body>
+</html>
+  
 <nav>
   <div class="logo">priyanka<span class="dot">.</span>dev</div>
   <ul>
