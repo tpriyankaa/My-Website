@@ -1,4 +1,4 @@
-  /* Container holding both columns side-by-side */
+/* Container holding both columns side-by-side */
 .contact-grid {
     display: flex;
     flex-direction: row;
@@ -122,4 +122,165 @@ body {
     align-items: center !important;
     text-align: center !important;
     padding: 20px !important;
+}
+/* Base styling for the tagline to enable 3D effects */
+.tagline-text {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff; /* Change color as needed */
+    
+    /* Adds a 3D text shadow look */
+    text-shadow: 
+        0 1px 0 #ccc,
+        0 2px 0 #c5c5c5,
+        0 3px 0 #bbb,
+        0 4px 0 #b0b0b0,
+        0 5px 0 #aaa,
+        0 1px 1px rgba(0,0,0,.1),
+        0 3px 5px rgba(0,0,0,.1),
+        0 5px 10px rgba(0,0,0,.25);
+
+    /* Links the smooth floating animation */
+    animation: float3D 4s ease-in-out infinite;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+/* Base container setup */
+.tagline-text {
+    perspective: 600px;
+    display: block;
+}
+
+/* Base styles for all lines */
+.tagline-text span {
+    display: inline-block;
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+    
+    /* 3D text shadow depth */
+    text-shadow: 
+        0 1px 0 #ccc,
+        0 2px 0 #c5c5c5,
+        0 3px 5px rgba(0,0,0,.2);
+
+    /* Links the animation to all spans */
+    animation: floatingSequence 4s ease-in-out infinite;
+}
+
+/* Systematic timing delays for a wave effect */
+.tagline-text .line-1 {
+    animation-delay: 0s;
+}
+
+.tagline-text .line-2 {
+    animation-delay: 0.4s; /* Starts slightly later */
+}
+
+.tagline-text .line-3 {
+    animation-delay: 0.8s; /* Starts last */
+}
+
+/* Center-aligns the entire block wrapper */
+.tagline-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    perspective: 500px;
+    line-height: 1.8;
+    width: 100%;
+}
+
+/* Styles applied to every single animated letter */
+.tagline-text span {
+    display: inline-block;
+    transform-style: preserve-3d;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    /* Snappy, fast ripple wave duration */
+    animation: quickWave 1.2s ease-in-out infinite;
+    
+    /* High-contrast crisp 3D layer shadow */
+    text-shadow: 
+        0 1px 0 #ccc,
+        0 2px 0 #b0b0b0,
+        0 3px 4px rgba(0,0,0,0.3);
+}
+
+
+/* Centers the main h2 block container */
+.tagline-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 15px; /* Adds clean spacing between the lines */
+    perspective: 500px;
+}
+
+/* Ensures letters inside each line stay flat horizontally */
+.wave-line {
+    display: block;
+    white-space: nowrap; /* Prevents single words from breaking early */
+}
+
+/* Centers the entire text block perfectly on your page */
+.tagline-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 15px; /* Spacing between lines */
+    perspective: 500px;
+}
+
+/* Keeps letters running horizontally */
+.wave-line {
+    display: block;
+    white-space: nowrap;
+}
+
+/* Individual letter styles and wave timing calculation */
+.wave-line span {
+    display: inline-block;
+    transform-style: preserve-3d;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: #ffffff;
+    
+    /* Links animation and multiplies the index (--i) for perfect staggering */
+    animation: simpleQuickWave 1.2s ease-in-out infinite;
+    animation-delay: calc(0.03s * var(--i));
+    
+    /* 3D crisp text layer shadow appearance */
+    text-shadow: 
+        0 1px 0 #ccc,
+        0 2px 0 #b0b0b0,
+        0 3px 4px rgba(0,0,0,0.3);
+}
+
+/* Fast, smooth, letter-by-letter wave motion keyframes */
+@keyframes simpleQuickWave {
+    0%, 100% {
+        transform: translateY(0px) rotateX(0deg);
+    }
+    30% {
+        transform: translateY(-12px) rotateX(15deg) scale(1.05); /* Smooth jump height */
+        text-shadow: 
+            0 1px 0 #ccc,
+            0 5px 0 #888,
+            0 9px 12px rgba(0,0,0,0.4);
+    }
+    60% {
+        transform: translateY(0px) rotateX(0deg); /* Snap down execution */
+    }
 }
