@@ -504,10 +504,6 @@
     background:rgba(59,130,246,0.12);
     font-size:1rem;
   }
-
-  /* device-mockup-style thumbnail frame, echoing the bordered
-     screenshot cards from the reference — abstract UI blocks stand
-     in for a real screenshot since none exist yet */
   .proj-thumb{
     height:140px;border-radius:12px;margin-bottom:20px;
     position:relative;overflow:hidden;
@@ -726,7 +722,7 @@
   <img id="introGif" class="intro-media" alt="" style="display:none;">
   <div class="intro-fallback" id="introFallback">
     <div class="intro-mark">✦</div>
-    <div class="intro-name">PRIYANKA<span>.</span>DEV</div>
+    <div class="intro-name">PRIYANKA<span>.</span></div>
     <div class="intro-dots"><i></i><i></i><i></i></div>
   </div>
   <button class="intro-skip" id="introSkip">Skip →</button>
@@ -735,7 +731,7 @@
 <canvas id="stars"></canvas>
 
 <nav>
-  <div class="logo">priyanka<span>.</span>dev</div>
+  <div class="logo">priyanka<span>.</span></div>
   <div>
     <a href="#skills">skills</a>
     <a href="#experience">experience</a>
@@ -748,15 +744,15 @@
   <div class="hero-grid">
     <div class="hero-text">
       <div class="eyebrow">CSE Graduate · Bhopal, India</div>
-      <h1 class="hero-name">Priyanka<br>Thakur</h1>
+      <h1 class="hero-name">Kumari Priyanka<br>Thakur</h1>
       <div class="role-cycle">
         <span class="role-text" id="roleText"></span><span class="role-cursor">|</span>
       </div>
-      <p class="hero-role">Web developer building <b>clean, fast, real</b> software — HTML, CSS, JavaScript &amp; Tailwind on the frontend, Python and backend fundamentals underneath.</p>
+      <p class="hero-role">Versatile Web developer focused on building <b>clean, fast, scalable</b> software — HTML, CSS, JavaScript &amp; Tailwind , Python and backend fundamentals underneath.</p>
       <a href="#contact" class="hire-btn" id="hireBtn">Hire Me →</a>
     </div>
     <div class="avatar-frame">
-      <img src="profile.jpg" alt="Kumari Priyanka Thakur" onerror="this.style.display='none';document.getElementById('avatarFallback').style.display='flex';">
+      <img src="profile.jpeg" alt="Kumari Priyanka Thakur" onerror="this.style.display='none';document.getElementById('avatarFallback').style.display='flex';">
       <div class="avatar-fallback" id="avatarFallback">PT</div>
     </div>
   </div>
@@ -887,7 +883,7 @@
       <p class="tagline" id="tagline"></p>
       <div class="tagline-signature">
         <span class="heart">♥</span>
-        <span>Built with passion, by Priyanka Thakur</span>
+        <span>Crafted with care. Coded from scratch. © Priyanka Thakur</span>
       </div>
     </div>
     <div class="outro-visual">
@@ -1106,6 +1102,13 @@ const timeline = [
     duration:"2019 — 2022",
     toolsUsed:["Fundamentals","C","Python"],
     achievements:["Foundation in programming & systems"]
+  },
+    {
+    role:"Matriculation",
+    company:"Bal-Kalyan Public School, Darbhanga-Bihar",
+    duration:"2017",
+    toolsUsed:["Built strong academic foundation"],
+    achievements:["Secured 9.8 CGPA in 10th board exams"]
   }
 ];
 
@@ -1226,8 +1229,8 @@ certs.forEach(c=>{
   certChips.appendChild(d);
 });
 
-const toolIcons = {"Visual Studio Code":"🧩","PowerShell":"⌘","GitHub":"🐙","LeetCode":"🧠"};
-const toolsMore = ["Visual Studio Code","PowerShell","GitHub","LeetCode"];
+const toolIcons = {"Visual Studio Code":"🧩","PowerShell":"⌘","GitHub":"🐙","LeetCode":"🧠", "Pheonic Code":"🐦‍🔥"};
+const toolsMore = ["Visual Studio Code","PowerShell","GitHub","LeetCode", "Phoenix Code"];
 const toolChips = document.getElementById('toolChips');
 toolsMore.forEach(t=>{
   const d=document.createElement('div');
@@ -1238,7 +1241,7 @@ toolsMore.forEach(t=>{
 
 /* ============ waving 3D tagline ============ */
 (function buildTagline(){
-  const text = "STILL LEARNING, STILL BUILDING, THE BEST PROJECT IS YET TO COME.";
+  const text = "STILL LEARNING, STILL BUILDING, THE BEST PROJECT IS YET TO COME.!";
   const accentFrom = text.indexOf("THE BEST");
   const el = document.getElementById('tagline');
   const words = text.split(' ');
