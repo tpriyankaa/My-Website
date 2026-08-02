@@ -2,6 +2,15 @@
 
 A responsive, high-performance professional portfolio website built from scratch using clean semantic architecture. Designed with a custom cyber-tech dark UI layout system, this terminal dashboard showcases an interactive achievements framework, an authenticated certificate grid array, and technical documentation layouts.
 
+---
+
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+---
+
+
 🔗 **Live Deployment Link:** [Click Here to View Live Portfolio Website](https://my-website-9t4hze3v1-tpriyankaas-projects.vercel.app/)
 
 ---
