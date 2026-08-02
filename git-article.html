@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOG_VIEWER // Git & GitHub Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      background-color: #030a16; 
+      color: #cbd5e1; 
+      font-family: system-ui, -apple-system, sans-serif; 
+      line-height: 1.7; 
+      padding: 60px 20px;
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* FIXED VISIBILITY LAYER: Boosted brightness from 0.45 to 0.95 */
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.95; 
+    }
+
+    .terminal-container { 
+      max-width: 820px; 
+      margin: 0 auto; 
+      background: rgba(8, 18, 36, 0.85); 
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(100, 218, 255, 0.35); 
+      border-radius: 16px; 
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(100, 218, 255, 0.1);
+      overflow: hidden;
+      position: relative;
+      z-index: 10;
+    }
+
+    .terminal-header { 
+      background: rgba(12, 26, 51, 0.95); 
+      padding: 16px 24px; 
+      display: flex; 
+      align-items: center; 
+      border-bottom: 1px solid rgba(100, 218, 255, 0.3); 
+    }
+
+    .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; display: inline-block; }
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #f59e0b; }
+    .dot.green { background: #10b981; }
+    
+    .header-title { 
+      color: #94a3b8; 
+      font-family: monospace; 
+      font-size: 11px; 
+      margin-left: 12px; 
+      letter-spacing: 0.15em; 
+    }
+
+    .terminal-body { padding: 50px; text-align: left; }
+
+    .back-btn { 
+      color: #64daff; 
+      text-decoration: none; 
+      font-family: monospace; 
+      font-size: 13px; 
+      display: inline-block; 
+      margin-bottom: 30px; 
+      transition: all 0.25s;
+      letter-spacing: 0.05em;
+    }
+    .back-btn:hover { color: #ffffff; text-shadow: 0 0 10px rgba(100, 218, 255, 0.8); }
+
+    .meta-tag { 
+      color: #4fc3f7; 
+      font-family: monospace; 
+      font-size: 12px; 
+      letter-spacing: 0.12em; 
+      font-weight: bold; 
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    h1 { 
+      color: #ffffff; 
+      font-size: 28px; 
+      line-height: 1.3; 
+      margin-bottom: 28px; 
+      font-weight: 700;
+    }
+
+    h2 { 
+      color: #64daff; 
+      margin-top: 40px; 
+      margin-bottom: 16px;
+      font-size: 20px; 
+      font-weight: 600;
+      border-bottom: 1px dashed rgba(100, 218, 255, 0.25); 
+      padding-bottom: 8px;
+    }
+
+    p { margin-bottom: 20px; color: #cbd5e1; font-size: 15px; }
+    code { 
+      background: rgba(100, 218, 255, 0.15); 
+      color: #64daff; 
+      padding: 3px 8px; 
+      border-radius: 4px; 
+      font-family: monospace; 
+      font-size: 14px; 
+      border: 1px solid rgba(100, 218, 255, 0.25);
+    }
+
+    ul { padding-left: 24px; margin-bottom: 24px; }
+    li { margin-bottom: 12px; color: #cbd5e1; font-size: 15px; }
+    strong { color: #ffffff; }
+  </style>
+</head>
+<body>
+
+  <canvas id="matrix-canvas"></canvas>
+
+  <div class="terminal-container">
+    <div class="terminal-header">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="header-title">SECURE_SYSTEM_LOG // PROTOCOL_V_03</span>
+    </div>
+
+    <div class="terminal-body">
+      <a href="index-10.html" class="back-btn">← RETURN_TO_DASHBOARD</a>
+      
+      <span class="meta-tag">// ARTICLE_LOG: 01_VERSION_CONTROL</span>
+      <h1>Cracking the GitHub Code: What I Wish I Knew When Starting From Scratch</h1>
+      
+      <p>When I first started out, Git and GitHub felt completely overwhelming. My terminal regularly threw red fatal errors, I had no clue what a branch actually was, and Markdown looked like a broken code language. If you are struggling with version control, this guide breaks down the exact hurdles I faced—and how I overcame them.</p>
+      
+      <h2>🏗️ 1. The Confusion of Making a Repo (Local vs. Cloud)</h2>
+      <p>My first mistake was not realizing that <strong>Git</strong> (local) and <strong>GitHub</strong> (cloud) are separate. I used to create a repo online and a folder locally without connecting them properly, which broke my commit records.</p>
+      <p><strong>The Fix:</strong> Run <code>git init</code> inside your local folder, create an empty repository on GitHub without checking any README configuration boxes, and link them using: <code>git remote add origin YOUR_URL</code>.</p>
+      
+      <h2>🚀 2. The Dreaded 'git push' Red Errors</h2>
+      <p>Running <code>git push</code> only to get a wall of error text happens because your machine does not know where to broadcast changes yet.</p>
+      <p><strong>The Fix:</strong> For your very first upload execution, manually direct the upstream branch relationship trace: <code>git push -u origin main</code>. Your computer will remember the route moving forward.</p>
+      
+      <h2>📄 3. Creating a README File That Actually Sells</h2>
+      <p>Your README serves as the landing display profile page for your project. Use bold headers, bullet lists, and triple-backtick markdown blocks to prove you document code professionally.</p>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let points = [];
+    const maxPoints = 110; // Increased density slightly
+    const connectionDistance = 130; // Increased link reach length
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function initPoints() {
+      points = [];
+      for (let i = 0; i < maxPoints; i++) {
+        points.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5
+        });
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let i = 0; i < points.length; i++) {
+        let p1 = points[i];
+        
+        p1.x += p1.vx;
+        p1.y += p1.vy;
+
+        if (p1.x < 0 || p1.x > canvas.width) p1.vx *= -1;
+        if (p1.y < 0 || p1.y > canvas.height) p1.vy *= -1;
+
+        for (let j = i + 1; j < points.length; j++) {
+          let p2 = points[j];
+          let dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
+
+          if (dist < connectionDistance) {
+            // FIXED VISIBILITY: Boosted transparency calculation modifier
+            let alpha = (1 - dist / connectionDistance) * 0.35; 
+            ctx.strokeStyle = `rgba(100, 218, 255, ${alpha})`;
+            ctx.lineWidth = 1.1; // Slightly thicker layout lines
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+
+        // FIXED VISIBILITY: Boosted node transparency value to 0.75
+        ctx.fillStyle = 'rgba(100, 218, 255, 0.75)';
+        ctx.beginPath();
+        ctx.arc(p1.x, p1.y, 2, 0, Math.PI * 2); // Slightly larger node dots
+        ctx.fill();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => { resizeCanvas(); initPoints(); });
+    resizeCanvas();
+    initPoints();
+    animate();
+  </script>
+</body>
+</html>
