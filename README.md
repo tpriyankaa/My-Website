@@ -11,7 +11,7 @@ A responsive, high-performance professional portfolio website built from scratch
 ---
 
 
-🔗 **Live Deployment Link:** [Click Here to View Live Portfolio Website](https://my-website-9t4hze3v1-tpriyankaas-projects.vercel.app/)
+🔗 **Live Deployment Link:** [Click Here to View Live Portfolio Website](https://my-website-tpriyankaas-projects.vercel.app/)
 
 ---
 
